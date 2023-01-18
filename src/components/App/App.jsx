@@ -1,21 +1,24 @@
-// import { Box, Nav, NavItem } from './AppBar.styled';
-import css from './AppBar.module.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { lazy } from 'react';
 
-const navItems = [
-  { href: '/', text: 'Home' },
-  { href: 'movies', text: 'Movies' },
-];
+import Layout from 'components/Layout';
 
-export const AppBar = () => {
+const Home = lazy(() => import('pages/Home'));
+
+export const App = () => {
   return (
-    <div className={css.box}>
-      <div className={css.nav}>
-        {navItems.map(({ href, text }) => (
-          <div className={css.nav__item} to={href} key={href}>
-            {text}
-          </div>
-        ))}
-      </div>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          {/* <Route path="movies" element={<Movies />} /> */}
+          {/* <Route path="movies/:id" element={<MovieDetails />}> */}
+          {/* <Route path="cast" element={<Cast />} /> */}
+          {/* <Route path="reviews" element={<Reviews />} /> */}
+          {/* </Route> */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
