@@ -1,26 +1,41 @@
-import { Outlet } from 'react-router-dom';
-import { Suspense } from 'react';
-import Loader from 'components/Loader';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-import { Container } from 'components/App/App.styled';
-import { Header, StyledLink } from './Layout.styled';
+const StyledLink = styled(NavLink)`
+  color: black;
+  margin-right: 10px;
+  font-size: 30px;
+  transition: all 0.3s;
+  :last-child {
+    margin: 0;
+  }
 
-const Layout = () => {
-  return (
-    <>
-      <Header>
-        <Container>
-          <nav>
-            <StyledLink to={'/'}>Home</StyledLink>
-            {/* <StyledLink to={'/movies'}>Movies</StyledLink> */}
-          </nav>
-        </Container>
-      </Header>
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
-    </>
-  );
-};
+  &.active {
+    color: orange;
+  }
 
-export default Layout;
+  :hover:not(.active),
+  :focus-visible:not(.active) {
+    color: white;
+  }
+`;
+
+const Header = styled.header`
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 10;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  min-height: 64px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+  color: #fff;
+  background-color: #28718d;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+`;
+
+export { StyledLink, Header };

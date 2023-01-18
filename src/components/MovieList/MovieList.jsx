@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Container } from 'components/App/App.styled';
-// import {
-//   MoviesGallery,
-//   MoviesImage,
-//   MovieTitle,
-//   MovieItem,
-// } from './MovieList.styled';
+import {
+  MoviesGallery,
+  MoviesImage,
+  MovieTitle,
+  MovieItem,
+} from './MovieList.styled';
 import PropTypes from 'prop-types';
 
 const MovieList = ({ movies }) => {
