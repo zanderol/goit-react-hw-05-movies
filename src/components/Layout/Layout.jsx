@@ -10,7 +10,7 @@ export default function Layout() {
   return (
     <>
       <AppBar />
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Spinner />}>
         <Outlet />
       </Suspense>
     </>
