@@ -12,7 +12,7 @@ const Layout = () => {
         <Container>
           <nav>
             <StyledLink to={'/'}>Home</StyledLink>
-            {/* <StyledLink to={'/movies'}>Movies</StyledLink> */}
+            <StyledLink to={'/movies'}>Movies</StyledLink>
           </nav>
         </Container>
       </Header>
